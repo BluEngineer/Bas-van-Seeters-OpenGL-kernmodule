@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="assets\Custom\main1.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="headers\glad.c">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -31,6 +28,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="assets\Custom\stb_image.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="assets\Custom\main1.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -56,6 +56,9 @@
     <ClInclude Include="assets\Custom\stb_image.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="assets\Custom\Utilities.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="assets\shaders\vertexShaderExample.glsl" />
@@ -64,6 +67,8 @@
     <None Include="assets\Custom\3.3.shader.fs" />
     <None Include="assets\Custom\lightcube.fs" />
     <None Include="assets\Custom\lightcube.vs" />
+    <None Include="assets\Custom\Terrainshader.fs" />
+    <None Include="assets\Custom\Terrainshader.vs" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="assets\Custom\OpenGL container test.jpg">

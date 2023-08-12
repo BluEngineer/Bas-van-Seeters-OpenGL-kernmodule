@@ -5,6 +5,7 @@
 #include <iostream>
 #include <windows.h>
 #include "stb_image.h"
+#include "Utilities.h"
 #include <glm/glm.hpp>  // Include the main GLM file
 #include <glm/gtc/matrix_transform.hpp>  // Include specific GLM functionality
 
@@ -12,14 +13,19 @@
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void processInput(GLFWwindow* window);
 void mouse_callback(GLFWwindow* window, double xpos, double ypos);
-unsigned int loadTexture(const char* path);
-
+//unsigned int loadTexture(const char* path);
+void RenderTerrain(glm::mat4 view, glm::mat4 projection, int clipDir = 0);
+void SetupResources();
 //cubemap stuff
 
 
 // settings
 const unsigned int SCR_WIDTH = 800;
 const unsigned int SCR_HEIGHT = 600;
+
+unsigned int terrainProgram, skyProgram;
+unsigned int diffuseTex, heightmapID, normalmapID, dirtID, sandID, grassID, rockID, snowID, waternormalID;
+unsigned int plane, planeSize, VAO, VBO, EBO, cubeSize;
 
 //cam
 glm::vec3 cameraPos = glm::vec3(0.0f, 0.0f, 3.0f);
@@ -49,6 +55,7 @@ glm::vec3 cameraUp = glm::cross(cameraDirection, cameraRight);
 */
 int main()
 {
+    std::cout << "Fortnite Big Chungus!\n";
     // glfw: initialize and configure
     // ------------------------------
     glfwInit();
@@ -207,6 +214,12 @@ int main()
     //lightingShader.use();
    // lightingShader.setInt("texture1", 0);
    // lightingShader.setInt("texture2", 1);
+    glUseProgram(terrainProgram);
+
+    // SHADER PROGRAMS
+    unsigned int vertShader, fragShader;
+    CreateShader("assets/Custom/Terrainshader.vs", GL_VERTEX_SHADER, vertShader);
+    CreateShader("assets/Custom/Terrainshader.fs", GL_FRAGMENT_SHADER, fragShader);
 
 
     // render loop
@@ -265,14 +278,16 @@ int main()
 
         //material properties
 
-
+      
         // activate shader
         //lightingShader.use();
 
-        // create transformations
+        // create matrices
         glm::mat4 model = glm::mat4(1.0f);
         glm::mat4 view = glm::mat4(1.0f);
         glm::mat4 projection = glm::mat4(1.0f);
+
+
 
 
         model = glm::rotate(model,  (float)glfwGetTime() * glm::radians(50.0f), glm::vec3(0.5f, 1.0f, 0.0f));
@@ -314,6 +329,9 @@ int main()
 
         glBindVertexArray(lightCubeVAO);
         glDrawArrays(GL_TRIANGLES, 0, 36);
+
+        //render terrain!
+        RenderTerrain(view, projection);
 
 
         //swap buffers and poll IO events
@@ -397,41 +415,47 @@ void mouse_callback(GLFWwindow* window, double xpos, double ypos)
     cameraFront = glm::normalize(direction);
 }
 
+void RenderTerrain(glm::mat4 view, glm::mat4 projection, int clipDir)
+{
+    glUseProgram(terrainProgram);
+    glCullFace(GL_BACK);
+    glEnable(GL_DEPTH_TEST);
+    glm::mat4 world = glm::mat4(1.0f);
+
+    world = glm::translate(world, glm::vec3(0, 0, 0));
+
+    glUniformMatrix4fv(glGetUniformLocation(terrainProgram, "world"), 1, GL_FALSE, glm::value_ptr(world));
+    glUniformMatrix4fv(glGetUniformLocation(terrainProgram, "view"), 1, GL_FALSE, glm::value_ptr(view));
+    glUniformMatrix4fv(glGetUniformLocation(terrainProgram, "projection"), 1, GL_FALSE, glm::value_ptr(projection));
+    glUniform3fv(glGetUniformLocation(terrainProgram, "cameraPosition"), 1, glm::value_ptr(cameraPos));
+
+    // sun cycle
+    float t = glfwGetTime();
+    glUniform3f(glGetUniformLocation(terrainProgram, "lightDirection"), glm::cos(t), -0.5f, glm::sin(t));
+
+    glUniform1f(glGetUniformLocation(terrainProgram, "waterHeight"),1);
+    glUniform1i(glGetUniformLocation(terrainProgram, "clipDir"), clipDir);
+
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, heightmapID);
+    glActiveTexture(GL_TEXTURE1);
+    glBindTexture(GL_TEXTURE_2D, normalmapID);
+
+    glActiveTexture(GL_TEXTURE2);
+    glBindTexture(GL_TEXTURE_2D, dirtID);
+    glActiveTexture(GL_TEXTURE3);
+    glBindTexture(GL_TEXTURE_2D, sandID);
+    glActiveTexture(GL_TEXTURE4);
+    glBindTexture(GL_TEXTURE_2D, grassID);
+    glActiveTexture(GL_TEXTURE5);
+    glBindTexture(GL_TEXTURE_2D, rockID);
+    glActiveTexture(GL_TEXTURE6);
+    glBindTexture(GL_TEXTURE_2D, snowID);
+
+    glBindVertexArray(plane);
+    glDrawElements(GL_TRIANGLES, planeSize, GL_UNSIGNED_INT, 0);
+    glBindVertexArray(0);
+}
+
 //Utility Functions (should move this to seperate header later)
 
-unsigned int loadTexture(char const* path)
-{
-    unsigned int textureID;
-    glGenTextures(1, &textureID);
-
-    int width, height, nrComponents;
-    unsigned char* data = stbi_load(path, &width, &height, &nrComponents, 0);
-    if (data)
-    {
-        GLenum format;
-        if (nrComponents == 1)
-            format = GL_RED;
-        else if (nrComponents == 3)
-            format = GL_RGB;
-        else if (nrComponents == 4)
-            format = GL_RGBA;
-
-        glBindTexture(GL_TEXTURE_2D, textureID);
-        glTexImage2D(GL_TEXTURE_2D, 0, format, width, height, 0, format, GL_UNSIGNED_BYTE, data);
-        glGenerateMipmap(GL_TEXTURE_2D);
-
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-
-        stbi_image_free(data);
-    }
-    else
-    {
-        std::cout << "Texture failed to load at path: " << path << std::endl;
-        stbi_image_free(data);
-    }
-
-    return textureID;
-}

@@ -148,16 +148,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="assets\Custom\main1.cpp" />
     <ClCompile Include="assets\Custom\stb_image.cpp" />
     <ClCompile Include="headers\glad.c" />
     <ClCompile Include="src\engine\buffers.cpp" />
     <ClCompile Include="src\engine\input.cpp" />
     <ClCompile Include="src\engine\window.cpp" />
-    <ClCompile Include="assets\Custom\main1.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="assets\Custom\Shader.h" />
     <ClInclude Include="assets\Custom\stb_image.h" />
+    <ClInclude Include="assets\Custom\Utilities.h" />
     <ClInclude Include="headers\core.h" />
     <ClInclude Include="headers\engine\buffers.h" />
     <ClInclude Include="headers\engine\data.h" />
@@ -169,6 +170,8 @@
     <None Include="assets\Custom\3.3.shader.vs" />
     <None Include="assets\Custom\lightcube.fs" />
     <None Include="assets\Custom\lightcube.vs" />
+    <None Include="assets\Custom\Terrainshader.fs" />
+    <None Include="assets\Custom\Terrainshader.vs" />
     <None Include="assets\shaders\fragmentShaderExample.glsl" />
     <None Include="assets\shaders\vertexShaderExample.glsl" />
   </ItemGroup>
