@@ -1,1 +1,3 @@
 C:\Users\basva\Downloads\OpenGL-Quickstart-Template-main\Bas van Seeters OpenGL HKU\Bas van Seeters OpenGL kernmodule\x64\Debug\OpenGL-Bas.exe
+C:\C DATA\Code\OpenGL-Quickstart-Template-main\Bas van Seeters OpenGL HKU\Bas van Seeters OpenGL kernmodule\x64\Debug\OpenGL-Bas.exe
+C:\C DATA\Code\Bas OpenGL\Bas van Seeters OpenGL HKU\Bas van Seeters OpenGL kernmodule\x64\Debug\OpenGL-Bas.exe

@@ -1,13 +1,15 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Preview\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (OpenGLTemplate.vcxproj).  This can lead to incorrect clean and rebuild behavior.
   main1.cpp
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\shared\minwindef.h(130,1): warning C4005: 'APIENTRY': macro redefinition
-C:\Users\basva\Downloads\OpenGL-Quickstart-Template-main\Bas van Seeters OpenGL HKU\dependencies\include\glad\glad.h(32,1): message : see previous definition of 'APIENTRY'
-C:\Users\basva\Downloads\OpenGL-Quickstart-Template-main\Bas van Seeters OpenGL HKU\Bas van Seeters OpenGL kernmodule\assets\Custom\Utilities.h(16,15): warning C4244: 'initializing': conversion from 'std::streamoff' to 'int', possible loss of data
-C:\Users\basva\Downloads\OpenGL-Quickstart-Template-main\Bas van Seeters OpenGL HKU\Bas van Seeters OpenGL kernmodule\assets\Custom\main1.cpp(389,17): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\basva\Downloads\OpenGL-Quickstart-Template-main\Bas van Seeters OpenGL HKU\Bas van Seeters OpenGL kernmodule\assets\Custom\main1.cpp(390,17): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\basva\Downloads\OpenGL-Quickstart-Template-main\Bas van Seeters OpenGL HKU\Bas van Seeters OpenGL kernmodule\assets\Custom\main1.cpp(394,19): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\basva\Downloads\OpenGL-Quickstart-Template-main\Bas van Seeters OpenGL HKU\Bas van Seeters OpenGL kernmodule\assets\Custom\main1.cpp(395,19): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\basva\Downloads\OpenGL-Quickstart-Template-main\Bas van Seeters OpenGL HKU\Bas van Seeters OpenGL kernmodule\assets\Custom\main1.cpp(396,13): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\basva\Downloads\OpenGL-Quickstart-Template-main\Bas van Seeters OpenGL HKU\Bas van Seeters OpenGL kernmodule\assets\Custom\main1.cpp(397,13): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\basva\Downloads\OpenGL-Quickstart-Template-main\Bas van Seeters OpenGL HKU\Bas van Seeters OpenGL kernmodule\assets\Custom\main1.cpp(433,13): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-  OpenGL-Bas.vcxproj -> C:\Users\basva\Downloads\OpenGL-Quickstart-Template-main\Bas van Seeters OpenGL HKU\Bas van Seeters OpenGL kernmodule\x64\Debug\OpenGL-Bas.exe
+C:\C DATA\Code\Bas OpenGL\Bas van Seeters OpenGL HKU\Bas van Seeters OpenGL kernmodule\assets\Custom\Utilities.h(16,15): warning C4244: 'initializing': conversion from 'std::streamoff' to 'int', possible loss of data
+C:\C DATA\Code\Bas OpenGL\Bas van Seeters OpenGL HKU\Bas van Seeters OpenGL kernmodule\assets\Custom\main1.cpp(51,22): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\C DATA\Code\Bas OpenGL\Bas van Seeters OpenGL HKU\Bas van Seeters OpenGL kernmodule\assets\Custom\main1.cpp(572,20): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\C DATA\Code\Bas OpenGL\Bas van Seeters OpenGL HKU\Bas van Seeters OpenGL kernmodule\assets\Custom\main1.cpp(636,17): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\C DATA\Code\Bas OpenGL\Bas van Seeters OpenGL HKU\Bas van Seeters OpenGL kernmodule\assets\Custom\main1.cpp(637,17): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\C DATA\Code\Bas OpenGL\Bas van Seeters OpenGL HKU\Bas van Seeters OpenGL kernmodule\assets\Custom\main1.cpp(641,19): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\C DATA\Code\Bas OpenGL\Bas van Seeters OpenGL HKU\Bas van Seeters OpenGL kernmodule\assets\Custom\main1.cpp(642,19): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\C DATA\Code\Bas OpenGL\Bas van Seeters OpenGL HKU\Bas van Seeters OpenGL kernmodule\assets\Custom\main1.cpp(643,13): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\C DATA\Code\Bas OpenGL\Bas van Seeters OpenGL HKU\Bas van Seeters OpenGL kernmodule\assets\Custom\main1.cpp(644,13): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\C DATA\Code\Bas OpenGL\Bas van Seeters OpenGL HKU\Bas van Seeters OpenGL kernmodule\assets\Custom\main1.cpp(688,13): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\C DATA\Code\Bas OpenGL\Bas van Seeters OpenGL HKU\Bas van Seeters OpenGL kernmodule\assets\Custom\main1.cpp(714,13): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\C DATA\Code\Bas OpenGL\Bas van Seeters OpenGL HKU\Bas van Seeters OpenGL kernmodule\assets\Custom\main1.cpp(737,13): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  OpenGL-Bas.vcxproj -> C:\C DATA\Code\Bas OpenGL\Bas van Seeters OpenGL HKU\Bas van Seeters OpenGL kernmodule\x64\Debug\OpenGL-Bas.exe

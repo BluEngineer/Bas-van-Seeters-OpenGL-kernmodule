@@ -59,6 +59,12 @@
     <ClInclude Include="assets\Custom\Utilities.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="assets\Custom\model.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="assets\Custom\mesh.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="assets\shaders\vertexShaderExample.glsl" />
@@ -69,6 +75,18 @@
     <None Include="assets\Custom\lightcube.vs" />
     <None Include="assets\Custom\Terrainshader.fs" />
     <None Include="assets\Custom\Terrainshader.vs" />
+    <None Include="assets\Custom\Skybox.fs" />
+    <None Include="assets\Custom\skybox.vs" />
+    <None Include="assets\Custom\Resources\backpack\backpack.mtl" />
+    <None Include="assets\Custom\model.fs" />
+    <None Include="assets\Custom\model.vs" />
+    <None Include="assets\Custom\Resources\BasModel\2608_Bas.jpg.meta" />
+    <None Include="assets\Custom\Resources\BasModel\2608_Bas_1840mm.mtl" />
+    <None Include="assets\Custom\Resources\BasModel\2608_Bas_1840mm.mtl.meta" />
+    <None Include="assets\Custom\Abberation.fs" />
+    <None Include="assets\Custom\image.fs" />
+    <None Include="assets\Custom\image.vs" />
+    <None Include="assets\Custom\bloom.fs" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="assets\Custom\OpenGL container test.jpg">
@@ -89,5 +107,65 @@
     <Image Include="assets\Custom\container2.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="assets\Custom\Resources\heightmap.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\Custom\Resources\grass.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\Custom\Resources\dirt.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\Custom\Resources\normalmap.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\Custom\Resources\rock.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\Custom\Resources\sand.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\Custom\Resources\snow.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\Custom\Resources\wall.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\Custom\Resources\BritanniaHeightMap2.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\Custom\Resources\HeightMap_alien.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\Custom\Resources\backpack\ao.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\Custom\Resources\backpack\diffuse.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\Custom\Resources\backpack\normal.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\Custom\Resources\backpack\roughness.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\Custom\Resources\backpack\specular.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\Custom\Resources\BasModel\2608_Bas.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\Custom\Resources\Cobblestone.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\Custom\Resources\seamlesssnow.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\Custom\Resources\seamlessrock.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="assets\Custom\Resources\backpack\source_attribution.txt" />
   </ItemGroup>
 </Project>
