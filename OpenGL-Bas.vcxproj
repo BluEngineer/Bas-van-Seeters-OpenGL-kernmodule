@@ -128,7 +128,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>glfw3.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glfw3.lib;assimp\assimp-vc143-mtd.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -156,6 +156,8 @@
     <ClCompile Include="src\engine\window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="assets\Custom\mesh.h" />
+    <ClInclude Include="assets\Custom\model.h" />
     <ClInclude Include="assets\Custom\Shader.h" />
     <ClInclude Include="assets\Custom\stb_image.h" />
     <ClInclude Include="assets\Custom\Utilities.h" />
@@ -168,8 +170,20 @@
   <ItemGroup>
     <None Include="assets\Custom\3.3.shader.fs" />
     <None Include="assets\Custom\3.3.shader.vs" />
+    <None Include="assets\Custom\Abberation.fs" />
+    <None Include="assets\Custom\bloom.fs" />
+    <None Include="assets\Custom\image.fs" />
+    <None Include="assets\Custom\image.vs" />
     <None Include="assets\Custom\lightcube.fs" />
     <None Include="assets\Custom\lightcube.vs" />
+    <None Include="assets\Custom\model.fs" />
+    <None Include="assets\Custom\model.vs" />
+    <None Include="assets\Custom\Resources\backpack\backpack.mtl" />
+    <None Include="assets\Custom\Resources\BasModel\2608_Bas.jpg.meta" />
+    <None Include="assets\Custom\Resources\BasModel\2608_Bas_1840mm.mtl" />
+    <None Include="assets\Custom\Resources\BasModel\2608_Bas_1840mm.mtl.meta" />
+    <None Include="assets\Custom\Skybox.fs" />
+    <None Include="assets\Custom\skybox.vs" />
     <None Include="assets\Custom\Terrainshader.fs" />
     <None Include="assets\Custom\Terrainshader.vs" />
     <None Include="assets\shaders\fragmentShaderExample.glsl" />
@@ -182,6 +196,28 @@
     <Image Include="assets\Custom\fatyoshi.png" />
     <Image Include="assets\Custom\lensbloom.jpg" />
     <Image Include="assets\Custom\OpenGL container test.jpg" />
+    <Image Include="assets\Custom\Resources\backpack\ao.jpg" />
+    <Image Include="assets\Custom\Resources\backpack\diffuse.jpg" />
+    <Image Include="assets\Custom\Resources\backpack\normal.png" />
+    <Image Include="assets\Custom\Resources\backpack\roughness.jpg" />
+    <Image Include="assets\Custom\Resources\backpack\specular.jpg" />
+    <Image Include="assets\Custom\Resources\BasModel\2608_Bas.jpg" />
+    <Image Include="assets\Custom\Resources\BritanniaHeightMap2.jpg" />
+    <Image Include="assets\Custom\Resources\Cobblestone.png" />
+    <Image Include="assets\Custom\Resources\dirt.jpg" />
+    <Image Include="assets\Custom\Resources\grass.png" />
+    <Image Include="assets\Custom\Resources\heightmap.png" />
+    <Image Include="assets\Custom\Resources\HeightMap_alien.png" />
+    <Image Include="assets\Custom\Resources\normalmap.png" />
+    <Image Include="assets\Custom\Resources\rock.jpg" />
+    <Image Include="assets\Custom\Resources\sand.jpg" />
+    <Image Include="assets\Custom\Resources\seamlessrock.jpg" />
+    <Image Include="assets\Custom\Resources\seamlesssnow.jpg" />
+    <Image Include="assets\Custom\Resources\snow.jpg" />
+    <Image Include="assets\Custom\Resources\wall.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="assets\Custom\Resources\backpack\source_attribution.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
