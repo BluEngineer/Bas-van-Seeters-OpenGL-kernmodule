@@ -23,9 +23,9 @@ float kernel[9] = float[]
     9, -1, -6
 );
 
-const float saturationAmount = 5.0f; // Adjust this value to control the amount of saturation
-const float hueShiftAmount = 0.6f; // Adjust this value to control the amount of hue shift
-const float contrastAmount = 3f; // Adjust this value to control the contrast of the final image
+const float saturationAmount = 5.0f;
+const float hueShiftAmount = 0.6f;
+const float contrastAmount = 3f; 
 
 void main()
 {
@@ -39,15 +39,15 @@ void main()
         color.rgb += vec3(texture(_MainTex, fragCoord.st + offsets[i])) * kernel[i];
     }
 
-    // Render the scene to a separate texture, excluding bright areas
+
     vec3 sceneColor = color.rgb;
-    float brightnessThreshold = 0.8f; // Adjust this threshold to control which areas will bloom
+    float brightnessThreshold = 0.8f; 
     vec3 bloomMask = step(brightnessThreshold, sceneColor);
 
-    // Apply a blur effect to the thresholded texture
+
     vec3 blurredTexture = vec3(0.0f);
-    float blurIntensity = 0.02f; // Adjust this intensity to control the strength of the blur effect
-    float blurSize = 2.0f; // Adjust this size to control the size of the blur kernel
+    float blurIntensity = 0.02f; 
+    float blurSize = 2.0f; 
 
     for (int i = -5; i <= 5; i++) {
         for (int j = -5; j <= 5; j++) {
@@ -59,19 +59,13 @@ void main()
     blurredTexture /= 121.0f; // Divide by the number of samples to normalize the result
 
     // Combine the blurred texture with the original scene texture
-    float bloomIntensity = 0.3f; // Adjust this intensity to control the strength of the bloom effect
+    float bloomIntensity = 0.3f; 
     vec3 finalColor = sceneColor + blurredTexture * bloomIntensity;
 
-    // Apply saturation effect
+
     vec3 gray = vec3(dot(finalColor.rgb, vec3(0.2126, 0.7152, 0.0722)));
     finalColor = mix(gray, finalColor, saturationAmount);
-
-    // Apply hue shift effect
     finalColor = clamp(finalColor + hueShiftAmount, 0.0, 1.0);
-
-    // Apply contrast effect
     finalColor = (finalColor - 0.5) * contrastAmount + 0.5;
-
-    // Output the final color
     FragColor = vec4(finalColor * vignette, color.a);
 }
